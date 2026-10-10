@@ -1,0 +1,95 @@
+{
+  "id": "gdrive",
+  "name": "Google Drive",
+  "version": "0.1.0",
+  "pulse": ">=1.5",
+  "description": "Google Drive в «Файлах» и у агентов папкой @gdrive: несколько аккаунтов, «Мой диск», «Доступные мне», общие диски, ссылки; документы Google — в редакторе Google",
+  "permissions": [
+    "files:provide",
+    "files:open",
+    "embed",
+    "signals:create",
+    "network"
+  ],
+  "runtime": {
+    "kind": "python",
+    "entry": "gdrive_plugin.app:app",
+    "path": "backend",
+    "requirements": "backend/requirements.txt",
+    "health": "/health"
+  },
+  "files": {
+    "provider": {
+      "title": "Google Drive",
+      "icon": "bi-google",
+      "description": "Подключения плагина «Google Drive»: «Мой диск», «Доступные мне», общие диски, ссылки"
+    },
+    "handlers": [
+      {
+        "id": "google",
+        "title": "Google",
+        "extensions": [
+          "docx",
+          "doc",
+          "odt",
+          "rtf",
+          "xlsx",
+          "xls",
+          "ods",
+          "csv",
+          "pptx",
+          "ppt",
+          "odp",
+          "pdf"
+        ],
+        "path": "/editor",
+        "access": "read",
+        "preview": true,
+        "mobile": "view",
+        "scope": "own"
+      }
+    ]
+  },
+  "ui": {
+    "dist": "ui"
+  },
+  "menu": [
+    {
+      "id": "main",
+      "title": "Google Drive",
+      "icon": "bi-google",
+      "page": "index.html"
+    }
+  ],
+  "settings": {
+    "client_id": {
+      "type": "string",
+      "title": "ClientID приложения Google Cloud",
+      "description": "Тип «Desktop app», API Google Drive; выдаёт администратор установки Пульса (см. README плагина)"
+    },
+    "client_secret": {
+      "type": "string",
+      "title": "Client secret приложения Google Cloud",
+      "secret": true,
+      "description": "Вместе с ClientID"
+    },
+    "proxy": {
+      "type": "string",
+      "title": "Прокси для запросов к Google",
+      "secret": true,
+      "description": "Если Google с сервера Пульса недоступен: http://логин:пароль@хост:порт или socks5://хост:порт"
+    },
+    "proxy_all": {
+      "type": "boolean",
+      "title": "Все запросы к Google через прокси",
+      "default": false,
+      "description": "Выключено — через прокси идёт только вход, файлы — напрямую"
+    }
+  },
+  "skills": [
+    "skills/gdrive.md"
+  ],
+  "commands": "commands.json",
+  "check": "check",
+  "install": "INSTALL.md"
+}

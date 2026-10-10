@@ -1,0 +1,168 @@
+[
+  {
+    "name": "accounts",
+    "description": "Аккаунты Google: почта, место на Диске, не истёк ли вход",
+    "args": []
+  },
+  {
+    "name": "login",
+    "description": "Начать вход в ещё один аккаунт Google — передай владельцу tell_owner (входит он сам)",
+    "args": [
+      {
+        "name": "email",
+        "description": "подсказать аккаунт при входе"
+      }
+    ]
+  },
+  {
+    "name": "login finish",
+    "description": "Завершить вход адресом страницы после входа (http://127.0.0.1:1/?…), который прислал владелец",
+    "args": [
+      {
+        "name": "url",
+        "description": "адрес целиком",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "login status",
+    "description": "Чем закончился вход: pending, done, expired",
+    "args": []
+  },
+  {
+    "name": "logout",
+    "description": "Выйти из аккаунта и убрать его подключения (файлы на Диске не трогаются)",
+    "args": [
+      {
+        "name": "account",
+        "description": "аккаунт: почта или имя (один аккаунт — можно не указывать)"
+      }
+    ]
+  },
+  {
+    "name": "check",
+    "description": "Проверить подключение по шагам: приложение, прокси, доступ ко входу и к Диску, аккаунты",
+    "args": []
+  },
+  {
+    "name": "drives",
+    "description": "Что можно подключить из аккаунта: «Мой диск», «Доступные мне», общие диски",
+    "args": [
+      {
+        "name": "account",
+        "description": "аккаунт: почта или имя (один аккаунт — можно не указывать)"
+      }
+    ]
+  },
+  {
+    "name": "browse",
+    "description": "Папки внутри корня или папки — чтобы выбрать, что подключить",
+    "args": [
+      {
+        "name": "account",
+        "description": "аккаунт: почта или имя (один аккаунт — можно не указывать)"
+      },
+      {
+        "name": "root",
+        "description": "my | shared | drive (по умолчанию my)"
+      },
+      {
+        "name": "drive",
+        "description": "id или имя общего диска (root drive)"
+      },
+      {
+        "name": "folder",
+        "description": "id папки, внутрь которой смотреть"
+      }
+    ]
+  },
+  {
+    "name": "mounts",
+    "description": "Подключения: папки в @gdrive, откуда они, только ли чтение",
+    "args": []
+  },
+  {
+    "name": "mount",
+    "description": "Подключить «Мой диск», «Доступные мне», общий диск или папку в них как @gdrive/<имя>",
+    "args": [
+      {
+        "name": "account",
+        "description": "аккаунт: почта или имя (один аккаунт — можно не указывать)"
+      },
+      {
+        "name": "root",
+        "description": "my | shared | drive"
+      },
+      {
+        "name": "drive",
+        "description": "id или имя общего диска"
+      },
+      {
+        "name": "folder",
+        "description": "id папки (из browse) — подключить только её"
+      },
+      {
+        "name": "name",
+        "description": "имя папки в @gdrive"
+      }
+    ]
+  },
+  {
+    "name": "mount link",
+    "description": "Подключить файл или папку по ссылке Google Drive (открывается от имени аккаунта)",
+    "args": [
+      {
+        "name": "url",
+        "description": "https://drive.google.com/…",
+        "required": true
+      },
+      {
+        "name": "account",
+        "description": "аккаунт: почта или имя (один аккаунт — можно не указывать)"
+      },
+      {
+        "name": "name",
+        "description": "имя папки в @gdrive"
+      }
+    ]
+  },
+  {
+    "name": "rename",
+    "description": "Переименовать подключение",
+    "args": [
+      {
+        "name": "name",
+        "description": "текущее имя",
+        "required": true
+      },
+      {
+        "name": "to",
+        "description": "новое имя",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "unmount",
+    "description": "Отключить подключение (файлы на Диске не трогаются)",
+    "args": [
+      {
+        "name": "name",
+        "description": "имя подключения",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "share",
+    "description": "Открыть доступ по ссылке (чтение) к файлу или папке и вернуть ссылку — только по просьбе владельца",
+    "args": [
+      {
+        "name": "path",
+        "description": "путь в @gdrive: @gdrive/<подключение>/…",
+        "required": true
+      }
+    ]
+  }
+]

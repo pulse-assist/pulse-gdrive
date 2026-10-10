@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.plugin-data/
+node_modules/
+.pulse_plugin_sdk/
+dist/

@@ -1,0 +1,2 @@
+# Зависимости плагина сверх того, что уже есть у Пульса (fastapi, uvicorn, httpx, pymongo, pulse_plugin).
+socksio>=1.0          # прокси socks5 для запросов к Google (httpx)
